@@ -84,3 +84,6 @@ end
 
 
 create procedure sp_datos
+as begin
+select * from Usuarios
+end
