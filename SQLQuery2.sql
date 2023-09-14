@@ -77,4 +77,10 @@ select * from Usuarios where Usuario=@Usuario and Convert(varchar(50), DECRYPTBY
 end
 
 create procedure sp_permisos
-@
+@Id_Rol int
+as begin
+select  Nombre_Permiso, Estado from Roles_Permisos inner join Permisos on Permisos.Id_Permiso=Roles_Permiso where Id_Rol=@Id_Rol
+end
+
+
+create procedure sp_datos
