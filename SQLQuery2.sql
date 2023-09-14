@@ -56,4 +56,17 @@ insert into Roles_Permiso values (2,2,1)
 insert into Roles_Permiso values (2,3,0)
 insert into Roles_Permiso values (2,4,0)
 
+create procedure sp_registrar
+@Nombre varchar(50),
+@Edad int,
+@Usuario varchar(50),
+@Clave varchar(max),
+@Id_Rol int,
+@Patron varchar(50)
+as begin 
+insert into  Usuarios values(@Nombre, @Edad, @Usuario, ENCRYPTBYPASSPHRASE(@Patron, @Clave), @Id_Rol) 
+end
 
+
+create procedure sp_Login
+@Usuario varchar(50),
