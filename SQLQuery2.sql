@@ -70,3 +70,11 @@ end
 
 create procedure sp_Login
 @Usuario varchar(50),
+@Clave varchar(max),
+@Patron varchar(50)
+as begin
+select * from Usuarios where Usuario=@Usuario and Convert(varchar(50), DECRYPTBYPASSPHRASE(@Patron, Clave) )=@Clave
+end
+
+create procedure sp_permisos
+@
